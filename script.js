@@ -217,7 +217,7 @@ document.getElementById('checkout-form').addEventListener('submit', function(eve
         \nEstado: ${document.getElementById('estado').value}
 
 ----------------------------------------------------
-        *\nPagamento:* *${payment}*
+        \n*Pagamento:* *${payment}*
 
 ----------------------------------------------------
 
