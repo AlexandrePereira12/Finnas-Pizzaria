@@ -208,22 +208,7 @@
                 <h2>Finalizar Compra</h2>
                 <button class="close-btn" onclick="closeCart()">×</button>
             </div>
-            <div id="cart-items"></div>
 
-            <div class="cart-summary">
-                <div>
-                    <span>Subtotal</span>
-                    <span id="cart-subtotal">R$ 0,00</span>
-                </div>
-                <div>
-                    <span>Taxa de Entrega</span>
-                    <span id="cart-shipping">R$ 0,00</span>
-                </div>
-                <div class="cart-total">
-                    <span>Total</span>
-                    <span id="cart-total">R$ 0,00</span>
-                </div>
-            </div>
 
             <form id="checkout-form">
                 <label for="name">Nome:</label>
@@ -233,8 +218,8 @@
                 <input type="text" id="cpf" required><br>
 
                 <label for="cep">CEP:</label>
-                <input type="text" id="cep" name="cep" required onblur="buscarEndereco()">
-            
+                <input type="text" id="cep" name="cep" required onblur="buscarEndereco() ; calcularFrete()">
+
                 <label for="logradouro">Logradouro:</label>
                 <input type="text" id="logradouro" name="logradouro" required>
             
@@ -281,6 +266,28 @@
 
                 <input type="text" name="Observação" placeholder="Observação" id="observacao">
 
+                <br><br>
+                
+                <div id="cart-items"></div>
+                <div class="cart-summary">
+                    <div>
+                        <span>Subtotal</span>
+                        <span id="cart-subtotal">R$ 0,00</span>
+                    </div>
+                    <div>
+                        <span id="frete-taxado">Taxa de Entrega: </span>
+                        <p id="cart-shipping"></p>
+                    </div>
+    
+                    <div>
+                    </div>
+                    <div class="cart-total">
+                        <span>Total</span>
+                        <span id="cart-total">R$ 0,00</span>
+                    </div>
+                </div>
+
+                
                 <button type="submit">Continuar</button>
             </form>
         </div>

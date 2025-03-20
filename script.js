@@ -7,6 +7,8 @@ let cartTotal = document.getElementById('cart-total');
 let map;
 let marker;
 
+  
+
 // Variável para contar os cliques no cabeçalho
 let clickCount = 0;
 
@@ -35,11 +37,80 @@ function removeFromCart(index) {
     updateCartItems(); // Atualiza a lista do carrinho
 }
 
+let shipping = 0;
+
+      // Definindo a localização base (latitude e longitude de um CEP fictício)
+      const baseLatitude = -3.819243; 
+      const baseLongitude = -38.530701; 
+      
+              // Função para calcular a distância entre dois pontos com base em latitude e longitude
+      function calcularDistancia(lat1, lon1, lat2, lon2) {
+          const radlat1 = Math.PI * lat1 / 180;
+          const radlat2 = Math.PI * lat2 / 180;
+          const radlon1 = Math.PI * lon1 / 180;
+          const radlon2 = Math.PI * lon2 / 180;
+          const dlat = radlat2 - radlat1;
+          const dlon = radlon2 - radlon1;
+          const a = Math.sin(dlat / 2) * Math.sin(dlat / 2) +
+                    Math.cos(radlat1) * Math.cos(radlat2) *
+                    Math.sin(dlon / 2) * Math.sin(dlon / 2);
+          const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+          const distancia = 6371 * c; // Raio da Terra em km
+                  return distancia;
+              }
+      
+              // Função para calcular o frete
+              function calcularFrete() {
+                  const cep = document.getElementById('cep').value.replace(/\D/g, ''); // Remover caracteres não numéricos
+      
+                  if (cep.length !== 8) {
+                      alert("Por favor, digite um CEP válido.");
+                      return;
+                  }
+      
+                  // Substitua "YOUR_OPENCAGE_API_KEY" pela sua chave da OpenCage API
+                  const openCageAPIKey = '58218a0c19974c569d02c72b3f40a756'; // Aqui você precisa da sua chave da API
+                  const url = `https://api.opencagedata.com/geocode/v1/json?q=${cep},BR&key=${openCageAPIKey}`;
+      
+                  fetch(url)
+                      .then(response => response.json())
+                      .then(data => {
+                          if (data.results.length === 0) {
+                              alert("CEP não encontrado.");
+                              return;
+                          }
+      
+                          const location = data.results[0].geometry;
+                          const lat = location.lat;
+                          const lon = location.lng;
+      
+                          // Calcular a distância entre o CEP e a localização base
+                          const distancia = calcularDistancia(baseLatitude, baseLongitude, lat, lon);
+
+                          // Calcular o valor do frete
+                          
+                          if (distancia > 2) {
+                            shipping = (distancia - 2) * 2; // Calcula o frete acima de 2 km
+                        } else {
+                            shipping = 0; // Frete grátis para até 2 km
+                        }
+                          updateCartItems(); // Atualiza os valores do carrinho após calcular o frete
+
+                          // Exibir o valor do frete
+                          document.getElementById('frete-taxado').textContent = `Taxa de Entrega: R$${shipping.toFixed(2)}`;
+                      })
+                      .catch(error => {
+                          console.error("Erro ao consultar a OpenCage API:", error);
+                          alert("Erro ao buscar o CEP. Tente novamente.");
+                      });
+              }
+
+
 // Atualiza os itens do carrinho no modal
 function updateCartItems() {
     cartItemsContainer.innerHTML = ''; // Limpa a lista de itens
 
-    let subtotal = 0;
+    let subtotal = cart.reduce((total, item) => total + item.price, 0); // Calcula o subtotal
 
     cart.forEach((item, index) => {
         subtotal += item.price;
@@ -54,7 +125,6 @@ function updateCartItems() {
 
     // Exibe o subtotal, o frete e o total
     cartSubtotal.textContent = `R$${subtotal.toFixed(2)}`;
-    let shipping = 0; // Valor fixo de frete
     cartShipping.textContent = `R$${shipping.toFixed(2)}`;
     cartTotal.textContent = `R$${(subtotal + shipping).toFixed(2)}`;
 }
@@ -84,6 +154,7 @@ function buscarEndereco() {
         
     }
 }
+
 
  // Ao clicar no botão "Selecionar no Mapa", abre o modal
  document.getElementById('select-map-btn').addEventListener('click', function() {
