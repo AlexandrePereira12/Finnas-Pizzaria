@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finnas Pizzaria</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="/img/icon/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/icon/favicon-16x16.png">
+    <link rel="manifest" href="img/icon/site.webmanifest">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="titulo">
+            <h1>Finnas Pizzaria</h1>
+            <br>
+            </div>
+            <div class="cart" onclick="openCart()">
+                🛒 Carrinho
+                <span id="cart-count">0</span>
+            </div>
+            <button class="admin-btn" onclick="openLoginModal()">Admin Login</button> <!-- Botão de login -->
+        </div>
+    </header>
+
+<br>
+
+    <main>
+
+    <div id="button-ref">
+        <button >
+            <a href="#salgados">Pizzas</a>
+        </button>
+
+        <button>
+            <a href="#bebidas">Bebidas</a>
+        </button>
+
+        <button>
+            <a href="#entradas">Salgados</a>
+        </button>
+
+    </div>
+            <br>
+        <div class="product-category">
+            <h2>Pizzas</h2>
+            <br>
+
+            <div class="product-list" id="salgados">
+                <!-- Produtos de salgados (com imagens) -->
+                <div class="product">
+                    <img src="img/cox_fran.webp" alt="Coxinha de frango">
+                    <p>Coxinha de Frango</p>
+                    <br>
+                    <p>R$ 7,00</p>
+                    <button onclick="addToCart('Coxinha de Carne do sol', 7.00)">Adicionar ao Carrinho</button>
+                </div>
+                <br>
+                <div class="product">
+                    <img src="img/fran_baco.jpg" alt="Coxinha de frango c/ bacon">
+                    <p>Coxinha de Frango c/ bacon</p>
+                    <br>
+                    <p>R$ 7,00</p>
+                    <button onclick="addToCart('Coxinha de frango c/ bacon', 7.00)">Adicionar ao Carrinho</button>
+                </div>
+                <br>
+                <div class="product">
+                    <img src="img/cox_carn_sol.jpg" alt="Coxinha de Carne do sol">
+                    <p>Coxinha de Frango c/requeijão</p>
+                    <br>
+                    <p>R$ 7,00</p>
+                    <button onclick="addToCart('Coxinha de Carne do sol', 7.00)">Adicionar ao Carrinho</button>
+                </div>
+                <br>
+                <div class="product">
+                    <img src="img/cox_carn_sol.jpg" alt="Coxinha de Carne do sol">
+                    <p>Coxinha de Carne do sol</p>
+                    <br>
+                    <p>R$ 7,00</p>
+                    <button onclick="addToCart('Coxinha de Carne do sol', 7.00)">Adicionar ao Carrinho</button>
+                </div>
+                <br>
+                <div class="product">
+                    <img src="img/cox_fran.webp" alt="Coxinha de Frango">
+                    <p>Coxinha de Frango</p>
+                    <br>
+                    <p>R$ 10,00</p>
+                    <button onclick="addToCart('Coxinha de Frango', 10.00)">Adicionar ao Carrinho</button>
+                </div>
+                <br>
+                <div class="product">
+                    <img src="img/cox_carn_sol.jpg" alt="Coxinha de Carne do sol">
+                    <p>Coxinha de Carne do sol</p>
+                    <br>
+                    <p>R$ 7,00</p>
+                    <button onclick="addToCart('Coxinha de Carne do sol', 7.00)">Adicionar ao Carrinho</button>
+                </div>
+                <br>
+                <div class="product">
+                    <img src="img/pastel_carn.jpg" alt="Pastel de Carne">
+                    <p>Pastel de Carne</p>
+                    <br>
+                    <p>R$ 9,00</p>
+                    <button onclick="addToCart('Pastel de Carne', 9.00)">Adicionar ao Carrinho</button>
+                </div>
+                <br>
+                <div class="product">
+                    <img src="img/cox_carn_sol.jpg" alt="Coxinha de Carne do sol">
+                    <p>Coxinha de Carne do sol</p>
+                    <br>
+                    <p>R$ 7,00</p>
+                    <button onclick="addToCart('Coxinha de Carne do sol', 7.00)">Adicionar ao Carrinho</button>
+                </div>
+                <br>
+                <div class="product">
+                    <img src="img/enrola.jpg" alt="Enroladinho de Salsicha">
+                    <p>Enroladinho de Salsicha</p>
+                    <br>
+                    <p>R$ 8,00</p>
+                    <button onclick="addToCart('Enroladinho de Salsicha', 8.00)">Adicionar ao Carrinho</button>
+                </div>
+                <br>
+
+            </div>
+        </div>
+        
+        <br>
+
+        <div class="product-category">
+            <h2>Salgados</h2>
+            <br>
+
+            <div class="product-list" id="entradas">
+                <!-- Produtos de entradas (sem imagens) -->
+                <div class="product">
+                    <h3>Entrada 1</h3>
+                    <p>R$ 5,00</p>
+                    <button onclick="addToCart('Entrada 1', 5)">Adicionar ao Carrinho</button>
+                </div>
+                <br>
+
+                <div class="product">
+                    <h3>Entrada 2</h3>
+                    <p>R$ 7,00</p>
+                    <button onclick="addToCart('Entrada 2', 7)">Adicionar ao Carrinho</button>
+                </div>
+                <br>
+
+            </div>
+        </div>
+        
+        <br>
+
+        <div class="product-category">
+            <h2>Bebidas</h2>
+            <br>
+            <div class="product-list" id="bebidas">
+                <!-- Produtos de bebidas (sem imagens) -->
+                <div class="product">
+                    <h3>Bebida 1</h3>
+                    <p>R$ 4,00</p>
+                    <button onclick="addToCart('Bebida 1', 4)">Adicionar ao Carrinho</button>
+                </div>
+                <br>
+
+                <div class="product">
+                    <h3>Bebida 2</h3>
+                    <p>R$ 6,00</p>
+                    <button onclick="addToCart('Bebida 2', 6)">Adicionar ao Carrinho</button>
+                </div>
+                <br>
+
+            </div>
+        </div>
+        
+
+         <!-- Modal de pedidos para Admin -->
+         <div id="admin-orders" class="modal">
+            <div class="modal-content">
+                <h2>Pedidos Realizados</h2>
+                <table id="orders-table">
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>CPF</th>
+                            <th>Itens</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- As linhas de pedidos serão inseridas aqui -->
+                    </tbody>
+                </table>
+                <button onclick="closeAdminOrders()">Fechar</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal Carrinho -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Finalizar Compra</h2>
+                <button class="close-btn" onclick="closeCart()">×</button>
+            </div>
+            <div id="cart-items"></div>
+
+            <div class="cart-summary">
+                <div>
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">R$ 0,00</span>
+                </div>
+                <div>
+                    <span>Taxa de Entrega</span>
+                    <span id="cart-shipping">R$ 0,00</span>
+                </div>
+                <div class="cart-total">
+                    <span>Total</span>
+                    <span id="cart-total">R$ 0,00</span>
+                </div>
+            </div>
+
+            <form id="checkout-form">
+                <label for="name">Nome:</label>
+                <input type="text" id="name" required><br>
+
+                <label for="cpf">CPF:</label>
+                <input type="text" id="cpf" required><br>
+
+                <label for="cep">CEP:</label>
+                <input type="text" id="cep" name="cep" required onblur="buscarEndereco()">
+            
+                <label for="logradouro">Logradouro:</label>
+                <input type="text" id="logradouro" name="logradouro" required>
+            
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" name="bairro" required>
+            
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" name="cidade" required>
+            
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" name="estado" required>
+            
+                <!-- Botão para abrir o modal e selecionar o local no mapa -->
+                <button type="button" id="select-map-btn">Selecionar no Mapa</button>
+
+                <!-- Modal do Mapa -->
+                <div id="map-modal" style="display: none;">
+                    <div class="modal-content">
+                        <h2>Selecione o Local no Mapa</h2>
+                        <div id="map" style="height: 400px;"></div> <!-- Mapa -->
+                        <button type="button" id="close-map-modal">Fechar</button>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <div>
+                        <label for="numero">Número:</label>
+                        <input type="text" id="numero" required>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="complemento">Complemento:</label>
+                        <input type="text" id="complemento">
+                    </div>
+                </div>
+
+                <label for="payment">Forma de pagamento:</label>
+                <select id="payment">
+                    <option value="credito">Crédito</option>
+                    <option value="debito">Débito</option>
+                    <option value="pix">Pix</option>
+                    <option value="dinheiro">Dinheiro</option>
+                </select><br>
+
+                <input type="text" name="Observação" placeholder="Observação" id="observacao">
+
+                <button type="submit">Continuar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal Login -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <h2>Login de Administrador</h2>
+            <form id="login-form">
+                <label for="admin-user">Usuário:</label>
+                <input type="text" id="admin-user" required><br>
+
+                <label for="admin-pass">Senha:</label>
+                <input type="password" id="admin-pass" required><br>
+
+                <button type="submit">Entrar</button>
+            </form>
+            <button onclick="closeLoginModal()">Fechar</button>
+        </div>
+    </div>
+
+
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<br>
+<br>
+    <footer>
+
+        <p>Finnas Pizzaria © <a href="https://github.com/AlexandrePereira12" class="link-git">APTecno</a>
+            <a href="//api.whatsapp.com/send/?phone=%2B5585998005021" class="wpp"><i class="fa-brands fa-square-whatsapp"></i></a>   
+            <i class="fa-solid fa-square-envelope"></i>
+        </p>
+
+
+</body>
+</html>

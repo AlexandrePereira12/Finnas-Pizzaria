@@ -1,0 +1,365 @@
+/* Reseta algumas margens e paddings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7; /* Fundo suave */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333; /* Título em cor mais escura */
+    margin-bottom: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+header {
+    background: linear-gradient(135deg, #4CAF50, #2E8B57); /* Gradiente */
+    color: white;
+    padding: 20px; /* Mantém um espaço interno confortável */
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(145, 143, 22, 0.658);
+    border-radius: 50; /* Remove bordas arredondadas para ocupar toda a tela */
+    position: relative;
+    width: 100vw; /* Largura total */
+    overflow: hidden;
+    box-sizing: border-box; /* Evita problemas com padding */
+    background-image: url(/img/Screenshot_1.png);
+}
+
+
+/* Efeito de vidro (Glassmorphism) */
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: -1;
+}
+
+/* Estilizando o título */
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 5px rgba(247, 222, 3, 0.664);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Efeito ao passar o mouse no título */
+header h1:hover {
+    transform: scale(1.05);
+    color: #fff;
+}
+
+/* Botão admin estilizado */
+.admin-btn {
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid white;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    display: none;
+}
+
+.admin-btn:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+}
+
+/* Ícone do carrinho */
+.cart {
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.cart:hover {
+    transform: scale(1.2);
+}
+
+/* Contador do carrinho */
+.cart span {
+    font-size: 1rem;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+
+a {
+    text-decoration: none; /* Remove o sublinhado */
+    color: inherit; /* Mantém a cor padrão do texto ao invés da cor do link */
+}
+
+/* Modal Carrinho */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #fff;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    text-align: left;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    max-height: 80vh;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.modal-header h2 {
+    font-size: 1.8rem;
+    color: #333;
+    font-weight: 700;
+}
+
+.close-btn {
+    font-size: 1.5rem;
+    color: #4CAF50;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+    color: #45a049;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item-name {
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #333;
+}
+
+.cart-item-price {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff6f61;
+}
+
+.cart-summary {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #eee;
+}
+
+.cart-summary div {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.cart-summary div span {
+    font-size: 1.2rem;
+}
+
+.cart-total {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+/* Formulário de endereço */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+form label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+form input,
+form select {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form select:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+form input[disabled] {
+    background-color: #f1f1f1;
+    cursor: not-allowed;
+}
+
+form button[type="submit"] {
+    padding: 14px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+form button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* Estilos para o modal de login */
+#login-modal .modal-content {
+    width: 400px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+#login-modal input {
+    margin-bottom: 15px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .product-list {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Input inválido */
+form input.invalid {
+    border-color: red;
+    background-color: #fdd;
+}
+
+/* Efeito de hover nos produtos */
+.product {
+    background-color: #fff;
+    display: grid;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product-list {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha */
+    justify-content: center; /* Centraliza os itens */
+    gap: 25px; /* Espaçamento entre os produtos */
+}
+
+/* Em telas menores, exibir os produtos em 1 coluna */
+@media (max-width: 768px) {
+    .product {
+        width: 100%;
+    }
+}
+
+
+.product:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
