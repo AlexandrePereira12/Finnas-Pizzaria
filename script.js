@@ -276,8 +276,7 @@ document.getElementById('checkout-form').addEventListener('submit', function(eve
     }
 
     // Calcular o valor total dos itens
-    const total = cart.reduce((total, item) => total + item.price, 0);
-    const shipping = 0; // Valor fixo de frete
+    const total = cart.reduce((total, item) => total + item.price, 0); // Valor fixo de frete
     const finalTotal = total + shipping;
 
     // Gerar a mensagem para WhatsApp
