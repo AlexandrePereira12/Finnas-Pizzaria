@@ -29,8 +29,15 @@
         </div>
     </header>
 
-<br>
-
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <main>
 
     <div id="button-ref">
@@ -53,21 +60,24 @@
             <br>
 
             <div class="product-list" id="salgados">
+            <div id="toast" class="toast">Ação realizada com sucesso!</div>
                 <!-- Produtos de salgados (com imagens) -->
                 <div class="product">
                     <img src="img/cox_fran.webp" alt="Coxinha de frango">
                     <p>Coxinha de Frango</p>
                     <br>
                     <p>R$ 7,00</p>
-                    <button onclick="addToCart('Coxinha de Carne do sol', 7.00)">Adicionar ao Carrinho</button>
+                    <button onclick="addToCart('Coxinha de Carne do sol', 7.00); showToast()">Adicionar ao Carrinho</button>
                 </div>
+
                 <br>
                 <div class="product">
                     <img src="img/fran_baco.jpg" alt="Coxinha de frango c/ bacon">
                     <p>Coxinha de Frango c/ bacon</p>
                     <br>
                     <p>R$ 7,00</p>
-                    <button onclick="addToCart('Coxinha de frango c/ bacon', 7.00)">Adicionar ao Carrinho</button>
+                    <button onclick="addToCart('Coxinha de frango c/ bacon', 7.00); showToast()">Adicionar ao Carrinho</button>
+
                 </div>
                 <br>
                 <div class="product">
@@ -75,7 +85,7 @@
                     <p>Coxinha de Frango c/requeijão</p>
                     <br>
                     <p>R$ 7,00</p>
-                    <button onclick="addToCart('Coxinha de Carne do sol', 7.00)">Adicionar ao Carrinho</button>
+                    <button onclick="addToCart('Coxinha de Carne do sol', 7.00); showToast()">Adicionar ao Carrinho</button>
                 </div>
                 <br>
                 <div class="product">
@@ -83,7 +93,7 @@
                     <p>Coxinha de Carne do sol</p>
                     <br>
                     <p>R$ 7,00</p>
-                    <button onclick="addToCart('Coxinha de Carne do sol', 7.00)">Adicionar ao Carrinho</button>
+                    <button onclick="addToCart('Coxinha de Carne do sol', 7.00); showToast()">Adicionar ao Carrinho</button>
                 </div>
                 <br>
                 <div class="product">
@@ -91,7 +101,7 @@
                     <p>Coxinha de Frango</p>
                     <br>
                     <p>R$ 10,00</p>
-                    <button onclick="addToCart('Coxinha de Frango', 10.00)">Adicionar ao Carrinho</button>
+                    <button onclick="addToCart('Coxinha de Frango', 10.00); showToast()">Adicionar ao Carrinho</button>
                 </div>
                 <br>
                 <div class="product">
@@ -99,7 +109,7 @@
                     <p>Coxinha de Carne do sol</p>
                     <br>
                     <p>R$ 7,00</p>
-                    <button onclick="addToCart('Coxinha de Carne do sol', 7.00)">Adicionar ao Carrinho</button>
+                    <button onclick="addToCart('Coxinha de Carne do sol', 7.00); showToast()">Adicionar ao Carrinho</button>
                 </div>
                 <br>
                 <div class="product">
@@ -107,7 +117,7 @@
                     <p>Pastel de Carne</p>
                     <br>
                     <p>R$ 9,00</p>
-                    <button onclick="addToCart('Pastel de Carne', 9.00)">Adicionar ao Carrinho</button>
+                    <button onclick="addToCart('Pastel de Carne', 9.00); showToast()">Adicionar ao Carrinho</button>
                 </div>
                 <br>
                 <div class="product">
@@ -115,7 +125,7 @@
                     <p>Coxinha de Carne do sol</p>
                     <br>
                     <p>R$ 7,00</p>
-                    <button onclick="addToCart('Coxinha de Carne do sol', 7.00)">Adicionar ao Carrinho</button>
+                    <button onclick="addToCart('Coxinha de Carne do sol', 7.00); showToast()">Adicionar ao Carrinho</button>
                 </div>
                 <br>
                 <div class="product">
@@ -123,7 +133,7 @@
                     <p>Enroladinho de Salsicha</p>
                     <br>
                     <p>R$ 8,00</p>
-                    <button onclick="addToCart('Enroladinho de Salsicha', 8.00)">Adicionar ao Carrinho</button>
+                    <button onclick="addToCart('Enroladinho de Salsicha', 8.00); showToast()">Adicionar ao Carrinho</button>
                 </div>
                 <br>
 
@@ -141,14 +151,14 @@
                 <div class="product">
                     <h3>Entrada 1</h3>
                     <p>R$ 5,00</p>
-                    <button onclick="addToCart('Entrada 1', 5)">Adicionar ao Carrinho</button>
+                    <button onclick="addToCart('Entrada 1', 5); showToast()">Adicionar ao Carrinho</button>
                 </div>
                 <br>
 
                 <div class="product">
                     <h3>Entrada 2</h3>
                     <p>R$ 7,00</p>
-                    <button onclick="addToCart('Entrada 2', 7)">Adicionar ao Carrinho</button>
+                    <button onclick="addToCart('Entrada 2', 7) ;showToast()">Adicionar ao Carrinho</button>
                 </div>
                 <br>
 
@@ -165,14 +175,14 @@
                 <div class="product">
                     <h3>Bebida 1</h3>
                     <p>R$ 4,00</p>
-                    <button onclick="addToCart('Bebida 1', 4)">Adicionar ao Carrinho</button>
+                    <button onclick="addToCart('Bebida 1', 4); showToast()">Adicionar ao Carrinho</button>    
                 </div>
                 <br>
 
                 <div class="product">
                     <h3>Bebida 2</h3>
                     <p>R$ 6,00</p>
-                    <button onclick="addToCart('Bebida 2', 6)">Adicionar ao Carrinho</button>
+                    <button onclick="addToCart('Bebida 2', 6); showToast()">Adicionar ao Carrinho</button>    
                 </div>
                 <br>
 

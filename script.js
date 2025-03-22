@@ -23,11 +23,22 @@ document.querySelector('header').addEventListener('click', function() {
     }
 });
 
+
 // Adiciona um item ao carrinho
 function addToCart(productName, price) {
     cart.push({ name: productName, price: price });
     cartCount.textContent = cart.length;
     updateCartItems();
+}
+
+function showToast() {
+    let toast = document.getElementById("toast");
+    toast.classList.add("show");
+
+    // Oculta a notificação após 2 segundos
+    setTimeout(() => {
+        toast.classList.remove("show");
+    }, 5000);
 }
 
 // Função para remover um item do carrinho
@@ -113,7 +124,6 @@ function updateCartItems() {
     let subtotal = cart.reduce((total, item) => total + item.price, 0); // Calcula o subtotal
 
     cart.forEach((item, index) => {
-        subtotal += item.price;
         cartItemsContainer.innerHTML += `
             <div class="cart-item">
                 <span class="cart-item-name">${item.name}</span>

@@ -47,6 +47,11 @@ header {
     overflow: hidden;
     box-sizing: border-box; /* Evita problemas com padding */
     background-image: url(/img/Screenshot_1.png);
+    position: fixed; /* Torna o header fixo no topo */
+    top: 0; /* Garante que o header fique no topo da página */
+    left: 0; /* Garante que o header ocupe toda a largura da página */
+    width: 100%; /* Largura total */
+    z-index: 1000; /* Garantir que o header fique acima de outros elementos */
 }
 
 
@@ -104,6 +109,30 @@ header h1:hover {
     transition: transform 0.3s ease;
 }
 
+
+.toast {
+    visibility: hidden;
+    min-width: 250px;
+    background-color: #20d410;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    position: fixed;
+    top: 20px; /* Alterado para o topo */
+    right: 20px; /* Mantido à direita */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s ease-in-out;
+    transform: translateY(-20px); /* Animação de entrada */
+}
+
+.toast.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 1000;
+}
 .cart:hover {
     transform: scale(1.2);
 }
