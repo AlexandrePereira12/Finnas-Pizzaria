@@ -108,7 +108,7 @@ let shipping = 0;
                           updateCartItems(); // Atualiza os valores do carrinho após calcular o frete
 
                           // Exibir o valor do frete
-                          document.getElementById('frete-taxado').textContent = `Taxa de Entrega: R$${shipping.toFixed(2)}`;
+                          //document.getElementById('frete-taxado').textContent = `Taxa de Entrega: R$${shipping.toFixed(2)}`;
                       })
                       .catch(error => {
                           console.error("Erro ao consultar a OpenCage API:", error);
